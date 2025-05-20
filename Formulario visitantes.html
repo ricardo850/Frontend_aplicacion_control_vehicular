@@ -1,94 +1,94 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Formulario Visitantes</title>
 </head>
 <body>
-    <form action="DatosVisitantes" method="post">
+    <form id="formularioVisitante">
         <div>
-        <p>Nombre y apellidos de quien ingresa:</p>
-        <input type="text" class="NombreApellido">
+            <p>Nombre y apellidos de quien ingresa:</p>
+            <input type="text" class="NombreApellido" name="NombreApellidos" />
         </div>
 
         <div>
-            <p>Numero de identificación:</p>
-            <input type="text" class="NumeroIdentificacion">
+            <p>Número de identificación:</p>
+            <input type="text" class="NumeroIdentificacion" name="cedula" />
         </div>
-        
+
         <div>
             <p>Empresa que gestiona el permiso:</p>
-            <input type="text" class="EmpresaGestionaPermiso">
-        </div><br>
+            <input type="text" class="EmpresaGestionaPermiso" name="EmpresaPermiso" />
+        </div>
 
         <div>
             <p>Nombre del puesto al que ingresa:</p>
-            <input type="text" class="PuestoIngreso">
-        </div><br>
+            <input type="text" class="PuestoIngreso" name="NombrePuesto" />
+        </div>
 
         <div>
             <p>Elija su tipo de sangre:</p>
-    <select>
-        <option value="A+">A+</option>
-        <option value="A">A-</option>
-        <option value="B+">B+</option>
-        <option value="B-">B-</option>
-        <option value="AB+">AB+</option>
-        <option value="AB-">AB-</option>
-        <option value="O+">O+</option>
-        <option value="O-">O-</option>
-    </select>
-</div>
+            <select class="TipoSangre" name="TipoSangre">
+                <option value="A+">A+</option>
+                <option value="A-">A-</option>
+                <option value="B+">B+</option>
+                <option value="B-">B-</option>
+                <option value="AB+">AB+</option>
+                <option value="AB-">AB-</option>
+                <option value="O+">O+</option>
+                <option value="O-">O-</option>
+            </select>
+        </div>
 
-<div>
-    <p>Nombre y apellidos de contacto de emergencia</p>
-    <input action="" class="NombreContactoEmergencia"></input>
-</div>
+        <div>
+            <p>Nombre y apellidos de contacto de emergencia:</p>
+            <input type="text" class="NombreContactoEmergencia" name="NombreApellidosEmergencia" />
+        </div>
 
-<div>
-    <p>Telefo de contacto de emergencia</p>
-    <input action="" class="TelefonoContactoEmergencia"></input>
-</div>
+        <div>
+            <p>Teléfono de contacto de emergencia:</p>
+            <input type="text" class="TelefonoContactoEmergencia" name="TelefonoEmergencia" />
+        </div>
 
-<div>
-    <p>escribe tu EPS</p>
-    <input action="" class="Eps"></input>
-</div>
+        <div>
+            <p>Escribe tu EPS:</p>
+            <input type="text" class="Eps" name="Eps" />
+        </div>
 
-<div>
-    <p>escribe tu ARL</p>
-    <input action="" class="Arl"></input>
-</div>
+        <div>
+            <p>Escribe tu ARL:</p>
+            <input type="text" class="Arl" name="Arl" />
+        </div>
 
-<div>
-    <p>Funcionario que gestionara la visita</p>
-    <input action="" class="FuncionarioGestion"></input>
-</div>
+        <div>
+            <p>Funcionario que gestionará la visita:</p>
+            <input type="text" class="FuncionarioGestion" name="FuncionarioGestionaVisita" />
+        </div>
 
-<div>
-    <p>Trae computador externo</p>
-    <select class="traeComputo">
-        <option value="Si">Si</option>
-        <option value="No">No</option>
-    </select>
-</div>
+        <div>
+            <p>¿Trae computador externo?</p>
+            <select class="traeComputo" name="TraeComputoExterno">
+                <option value="Si">Sí</option>
+                <option value="No">No</option>
+            </select>
+        </div>
 
-<div>
-<p>Escriba la marca del equipo</p>
-<input class="MarcaComputador">
-</div>
+        <div>
+            <p>Marca del equipo:</p>
+            <input type="text" class="MarcaComputador" name="MarcaEquipo" />
+        </div>
 
-<div>
-<p>Escriba el serial del equipo</p>
-<input class="SerialComputador">
-</div>
+        <div>
+            <p>Serial del equipo:</p>
+            <input type="text" class="SerialComputador" name="Serialequipo" />
+        </div>
 
+        <div>
+            <button type="button" class="EnviarDatos">Enviar</button>
+        </div>
     </form>
 
-
-    <div>
-        
-    </div>
+    <script src="envioDatosPersonal.js"></script>
 </body>
 </html>
