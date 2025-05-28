@@ -15,44 +15,31 @@ let marcaComputador = document.querySelector(".MarcaComputador");
 let serialComputador = document.querySelector(".SerialComputador");
 
 let botonEnviar = document.querySelector(".EnviarDatos");
+let empresaGestionaPuesto = document.querySelector(".EmpresaGestionaPuesto")
 
 
 function EnviarDatos() {
     let datos = {
-        NombreApellidos: nombreApellido.value,
-        cedula: numeroIdentificacion.value,
-        EmpresaPermiso: empresaGestionaPermiso.value,
-        NombrePuesto: puestoIngreso.value,
-        TipoSangre: tipoSangre.value,
-        NombreApellidosEmergencia: nombreContactoEmergencia.value,
-        TelefonoEmergencia: telefonoContactoEmergencia.value,
-        Eps: eps.value,
-        Arl: arl.value,
-        FuncionarioGestionaVisita: funcionarioGestion.value,
-        TraeComputoExterno: traeComputo.value,
-        MarcaEquipo: marcaComputador.value,
-        Serialequipo: serialComputador.value
+       
+    nombreApellidos: nombreApellido.value,
+    cedula: numeroIdentificacion.value,
+    empresaGestionaPuesto:empresaGestionaPuesto,
+    empresaPermiso: empresaGestionaPermiso.value,
+    nombrePuesto: puestoIngreso.value,
+    tipoSangre: tipoSangre.value,
+    nombreApellidosEmergencia: nombreContactoEmergencia.value,
+    telefonoEmergencia: telefonoContactoEmergencia.value,
+    eps: eps.value,
+    arl: arl.value,
+    funcionarioGestionaVisita: funcionarioGestion.value,
+    traeComputoExterno: traeComputo.value,
+    marcaEquipo: marcaComputador.value,
+    serialEquipo: serialComputador.value
     };
 
-    fetch("http://localhost:8080/DatosVisitantes", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify(datos)
-    })
-    .then(response => {
-        if (!response.ok) throw new Error("Error al enviar los datos");
-        return response.json();
-    })
-    .then(data => {
-        console.log("Datos enviados correctamente:", data);
-        alert("Datos enviados con éxito");
-    })
-    .catch(error => {
-        console.error("Ocurrió un error:", error);
-        alert("Error al enviar los datos.");
-    });
+    fetch("http://localhost:8080/DatosVisitantes")
+    .then(response => response.json())
+    .then(data => console.log(data.mensaje))
 }
 
 // Agrega el evento al botón
