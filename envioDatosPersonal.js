@@ -23,7 +23,7 @@ function EnviarDatos() {
        
     nombreApellidos: nombreApellido.value,
     cedula: numeroIdentificacion.value,
-    empresaGestionaPuesto:empresaGestionaPuesto,
+    empresaGestionaPuesto:empresaGestionaPuesto.value,
     empresaPermiso: empresaGestionaPermiso.value,
     nombrePuesto: puestoIngreso.value,
     tipoSangre: tipoSangre.value,
@@ -37,7 +37,14 @@ function EnviarDatos() {
     serialEquipo: serialComputador.value
     };
 
-    fetch("http://localhost:8080/DatosVisitantes")
+    fetch("http://localhost:8080/DatosVisitantes" , {
+        method :"POST",
+        headers : {
+            "Content-Type": "application/json"
+        },
+
+        body : JSON.stringify(datos)
+    })
     .then(response => response.json())
     .then(data => console.log(data.mensaje))
 }
