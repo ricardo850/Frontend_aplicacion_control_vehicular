@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Formulario Visitantes</title>
+    <link rel="stylesheet" href="EstilosEnvioDatosPersonal.css">
 </head>
 <body>
     <form id="formularioVisitante">
@@ -35,6 +36,7 @@
         <div>
             <p>Elija su tipo de sangre:</p>
             <select class="TipoSangre" name="TipoSangre">
+                <option value="Seleccione">Seleccione</option>
                 <option value="A+">A+</option>
                 <option value="A-">A-</option>
                 <option value="B+">B+</option>
@@ -74,20 +76,21 @@
         <div>
             <p>¿Trae computador externo?</p>
             <select class="traeComputo" name="TraeComputoExterno">
+                <option value="Seleccione">Seleccione</option>
                 <option value="Si">Sí</option>
                 <option value="No">No</option>
             </select>
         </div>
 
         <div>
-            <p>Marca del equipo:</p>
+            <p class="NombreMarcaEquipo">Marca del equipo:</p>
             <input type="text" class="MarcaComputador" name="MarcaEquipo" />
         </div>
 
         <div>
-            <p>Serial del equipo:</p>
+            <p class="NombreSerialEquipo">Serial del equipo:</p>
             <input type="text" class="SerialComputador" name="Serialequipo" />
-        </div>
+        </div><br>
 
         <div>
             <button type="button" class="EnviarDatos">Enviar</button>

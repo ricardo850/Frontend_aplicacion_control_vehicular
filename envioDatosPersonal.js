@@ -16,7 +16,8 @@ let serialComputador = document.querySelector(".SerialComputador");
 
 let botonEnviar = document.querySelector(".EnviarDatos");
 let empresaGestionaPuesto = document.querySelector(".EmpresaGestionaPuesto")
-
+let NombreMarcaEquipo = document.querySelector(".NombreMarcaEquipo")
+let NombreSerialEquipo = document.querySelector(".NombreSerialEquipo")
 
 function EnviarDatos() {
     let datos = {
@@ -51,3 +52,26 @@ function EnviarDatos() {
 
 // Agrega el evento al botón
 botonEnviar.addEventListener("click", EnviarDatos);
+function TraeEquipo(){
+if(traeComputo.value == "No"){
+    marcaComputador.style.display = "none";
+    serialComputador.style.display = "none";
+    NombreMarcaEquipo.style.display = "none";
+    NombreSerialEquipo.style.display = "none";
+
+}else if(traeComputo.value == "Si"){
+marcaComputador.style.display = "block";
+    serialComputador.style.display = "block";
+    NombreMarcaEquipo.style.display = "block";
+    NombreSerialEquipo.style.display = "block";
+}else{
+    marcaComputador.style.display = "none";
+    serialComputador.style.display = "none";
+    NombreMarcaEquipo.style.display = "none";
+    NombreSerialEquipo.style.display = "none"; 
+}
+
+}
+
+TraeEquipo()
+traeComputo.addEventListener("change",TraeEquipo)
