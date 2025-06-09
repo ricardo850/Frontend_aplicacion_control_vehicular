@@ -1,27 +1,26 @@
 
-let nombreApellido = document.querySelector(".NombreApellido");
-let numeroIdentificacion = document.querySelector(".NumeroIdentificacion");
-let empresaGestionaPermiso = document.querySelector(".EmpresaGestionaPermiso");
-let puestoIngreso = document.querySelector(".PuestoIngreso");
-let tipoSangre = document.querySelector(".TipoSangre");
+let nombreApellido = document.querySelector(".nombreApellido");
+let numeroIdentificacion = document.querySelector(".cedula");
+let empresaGestionaPermiso = document.querySelector(".empresaGestionaPuesto");
+let puestoIngreso = document.querySelector(".nombrePuesto");
+let tipoSangre = document.querySelector(".tipoSangre");
 
-let nombreContactoEmergencia = document.querySelector(".NombreContactoEmergencia");
-let telefonoContactoEmergencia = document.querySelector(".TelefonoContactoEmergencia");
-let eps = document.querySelector(".Eps");
-let arl = document.querySelector(".Arl");
-let funcionarioGestion = document.querySelector(".FuncionarioGestion");
+let nombreContactoEmergencia = document.querySelector(".nombreContactoEmergencia");
+let telefonoContactoEmergencia = document.querySelector(".telefonoContactoEmergencia");
+let eps = document.querySelector(".eps");
+let arl = document.querySelector(".arl");
+let funcionarioGestionaVisita = document.querySelector(".funcionarioGestionaVisita");
 let traeComputo = document.querySelector(".traeComputo");
-let marcaComputador = document.querySelector(".MarcaComputador");
-let serialComputador = document.querySelector(".SerialComputador");
+let marcaComputador = document.querySelector(".marcaComputador");
+let serialComputador = document.querySelector(".serialComputador");
 
 let botonEnviar = document.querySelector(".EnviarDatos");
-let empresaGestionaPuesto = document.querySelector(".EmpresaGestionaPuesto")
-let NombreMarcaEquipo = document.querySelector(".NombreMarcaEquipo")
-let NombreSerialEquipo = document.querySelector(".NombreSerialEquipo")
+let empresaGestionaPuesto = document.querySelector(".empresaGestionaPuesto")
+let NombreMarcaEquipo = document.querySelector(".nombreMarcaEquipo")
+let NombreSerialEquipo = document.querySelector(".nombreSerialEquipo")
 
 function EnviarDatos() {
     let datos = {
-       
     nombreApellidos: nombreApellido.value,
     cedula: numeroIdentificacion.value,
     empresaGestionaPuesto:empresaGestionaPuesto.value,
@@ -32,7 +31,7 @@ function EnviarDatos() {
     telefonoEmergencia: telefonoContactoEmergencia.value,
     eps: eps.value,
     arl: arl.value,
-    funcionarioGestionaVisita: funcionarioGestion.value,
+    funcionarioGestionaVisita: funcionarioGestionaVisita.value,
     traeComputoExterno: traeComputo.value,
     marcaEquipo: marcaComputador.value,
     serialEquipo: serialComputador.value
