@@ -1,8 +1,7 @@
 
 let nombreApellido = document.querySelector(".nombreApellido");
 let numeroIdentificacion = document.querySelector(".cedula");
-let empresaGestionaPermiso = document.querySelector(".empresaGestionaPuesto");
-let puestoIngreso = document.querySelector(".nombrePuesto");
+let nombrePuesto = document.querySelector(".nombrePuesto");
 let tipoSangre = document.querySelector(".tipoSangre");
 
 let nombreContactoEmergencia = document.querySelector(".nombreContactoEmergencia");
@@ -19,13 +18,14 @@ let empresaGestionaPuesto = document.querySelector(".empresaGestionaPuesto")
 let NombreMarcaEquipo = document.querySelector(".nombreMarcaEquipo")
 let NombreSerialEquipo = document.querySelector(".nombreSerialEquipo")
 
-function EnviarDatos() {
+function EnviarDatos(event) {
+    event.preventDefault()
+
     let datos = {
     nombreApellidos: nombreApellido.value,
     cedula: numeroIdentificacion.value,
     empresaGestionaPuesto:empresaGestionaPuesto.value,
-    empresaPermiso: empresaGestionaPermiso.value,
-    nombrePuesto: puestoIngreso.value,
+    nombrePuesto: nombrePuesto.value,
     tipoSangre: tipoSangre.value,
     nombreApellidosEmergencia: nombreContactoEmergencia.value,
     telefonoEmergencia: telefonoContactoEmergencia.value,
@@ -50,6 +50,9 @@ function EnviarDatos() {
 }
 
 // Agrega el evento al botón
+
+
+
 botonEnviar.addEventListener("click", EnviarDatos);
 function TraeEquipo(){
 if(traeComputo.value == "No"){
