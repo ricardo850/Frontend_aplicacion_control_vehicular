@@ -34,9 +34,12 @@ visitantes.forEach(element => {
     divmarcaEquipo.innerHTML = element.marcaEquipo
     divserialEquipo.innerHTML = element.serialequipo
 
+    divNombreApellidos.classList.add("estiloDiv")
+
     divContent.append(divNombreApellidos,divCedula,divempresaGestionaPuesto,divnombrePuesto,divtipoSangre,divnombreApellidosEmergencia,divtelefonoEmergencia,
         diveps,divarl,divfuncionarioGestionVisita,divtraeComputoExterno,divmarcaEquipo,divserialEquipo
     )
+
 
     contentDatos.appendChild(divContent)
 

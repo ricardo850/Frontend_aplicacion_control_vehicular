@@ -21,5 +21,4 @@ function EnviarDatosEmpresaNueva(){
     .then(data => console.log(data.mensaje))
 }
 
-
 BTNEnviarBaseDatosCrear.addEventListener("click" , EnviarDatosEmpresaNueva)
