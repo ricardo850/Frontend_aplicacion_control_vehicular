@@ -1,14 +1,26 @@
 #formularioVisitante{
-        display: flex;
+display: flex;
 flex-direction: column;
 align-items: center;
 justify-content: center;
-width: 300px;
+width: 500px;
 gap: 20px;
 border: 2px solid black;
-padding: 10px 10px 10px 10px;
 height: 300px;
 background-color: rgb(205, 211, 205);
 padding: 25px;
 height: auto;
+}
+
+input{
+        height: 40px;
+        width: 330px;
+}
+
+option{
+        height: 80px;
+}
+select{
+        height: 40px;
+        width: 150px;
 }
