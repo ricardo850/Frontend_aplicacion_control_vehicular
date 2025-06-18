@@ -19,37 +19,85 @@ let NombreMarcaEquipo = document.querySelector(".nombreMarcaEquipo")
 let NombreSerialEquipo = document.querySelector(".nombreSerialEquipo")
 
 function EnviarDatos(event) {
-    event.preventDefault()
+    event.preventDefault();
+    
+    if (
+        nombreApellido.value == "" || numeroIdentificacion.value == "" ||
+        empresaGestionaPuesto.value == "" || nombrePuesto.value == "" || tipoSangre.value == "Seleccione" ||
+        nombreContactoEmergencia.value == "" || telefonoContactoEmergencia.value == "" || eps.value == "" ||
+        arl.value == "" || funcionarioGestionaVisita.value == "" || traeComputo.value == "Seleccione"
+    ) {
+        alert("Le faltan algunos datos obligatorios");
+        return;
+    } else if (traeComputo.value == "Si" && (marcaComputador.value == "" || serialComputador.value == "")) {
+        alert("Debe ingresar marca y serial del equipo");
+        return;
+    } else if (traeComputo.value == "No") {
+        let datos = {
+            nombreApellidos: nombreApellido.value,
+            cedula: numeroIdentificacion.value,
+            empresaGestionaPuesto: empresaGestionaPuesto.value,
+            nombrePuesto: nombrePuesto.value,
+            tipoSangre: tipoSangre.value,
+            nombreApellidosEmergencia: nombreContactoEmergencia.value,
+            telefonoEmergencia: telefonoContactoEmergencia.value,
+            eps: eps.value,
+            arl: arl.value,
+            funcionarioGestionaVisita: funcionarioGestionaVisita.value,
+            traeComputoExterno: traeComputo.value,
+            marcaEquipo: "No aplica",
+            serialEquipo: "No aplica"
+        };
 
-    let datos = {
-    nombreApellidos: nombreApellido.value,
-    cedula: numeroIdentificacion.value,
-    empresaGestionaPuesto:empresaGestionaPuesto.value,
-    nombrePuesto: nombrePuesto.value,
-    tipoSangre: tipoSangre.value,
-    nombreApellidosEmergencia: nombreContactoEmergencia.value,
-    telefonoEmergencia: telefonoContactoEmergencia.value,
-    eps: eps.value,
-    arl: arl.value,
-    funcionarioGestionaVisita: funcionarioGestionaVisita.value,
-    traeComputoExterno: traeComputo.value,
-    marcaEquipo: marcaComputador.value,
-    serialEquipo: serialComputador.value
-    };
+       fetch("http://localhost:8080/DatosVisitantes", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(datos)
+        })
+        .then(response => response.json())
+        .then(data => {
+            if(data.mensaje == "enviado"){
+                window.location.href = "RegistroExitoso.html";
+            }
+        })
+        .catch(error => console.error('Error al enviar los datos:', error));
+    }
+    else {
+        let datos = {
+            nombreApellidos: nombreApellido.value,
+            cedula: numeroIdentificacion.value,
+            empresaGestionaPuesto: empresaGestionaPuesto.value,
+            nombrePuesto: nombrePuesto.value,
+            tipoSangre: tipoSangre.value,
+            nombreApellidosEmergencia: nombreContactoEmergencia.value,
+            telefonoEmergencia: telefonoContactoEmergencia.value,
+            eps: eps.value,
+            arl: arl.value,
+            funcionarioGestionaVisita: funcionarioGestionaVisita.value,
+            traeComputoExterno: traeComputo.value,
+            marcaEquipo: marcaComputador.value,
+            serialEquipo: serialComputador.value
+        };
 
-    fetch("http://localhost:8080/DatosVisitantes" , {
-        method :"POST",
-        headers : {
-            "Content-Type": "application/json"
-        },
-
-        body : JSON.stringify(datos)
-    })
-    .then(response => response.json())
-    .then(data => console.log(data.mensaje))
+        fetch("http://localhost:8080/DatosVisitantes", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(datos)
+        })
+        .then(response => response.json())
+        .then(data => {
+            if(data.mensaje == "enviado"){
+                window.location.href = "RegistroExitoso.html";
+            }
+        })
+        .catch(error => console.error('Error al enviar los datos:', error));
+    }
 }
 
-// Agrega el evento al botón
 
 
 

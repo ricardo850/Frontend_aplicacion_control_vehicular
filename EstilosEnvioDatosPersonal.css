@@ -24,3 +24,15 @@ select{
         height: 40px;
         width: 150px;
 }
+
+a{
+        text-decoration: none;
+        color: black;
+        background-color: yellow;
+        padding: 4px;
+}
+
+button{
+        height: 40px;
+        width: 80px;
+}

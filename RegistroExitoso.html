@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Confirmación de Registro</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #f9f9f9;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .mensaje-exito {
+      background-color: #d4edda;
+      color: #155724;
+      border: 1px solid #c3e6cb;
+      padding: 60px 60px;
+      border-radius: 8px;
+      font-size: 1.2rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      max-width: 320px;
+    }
+    .icono-check {
+      width: 32px;
+      height: 32px;
+      flex-shrink: 0;
+      fill: #155724;
+    }
+.content{
+    height: 400px;
+    width: 600px;
+    border: 2px solid black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+    
+  </style>
+</head>
+<body>
+    <div class="content"><div class="mensaje-exito">
+    <svg class="icono-check" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+      <circle cx="12" cy="12" r="10" stroke="#155724" stroke-width="2" fill="none" />
+      <path d="M7 13l3 3 7-7" stroke="#155724" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+    <span>✅¡Registro exitoso! Su puesto ha sido creado correctamente.</span>
+  </div></div>
+  
+</body>
+</html>

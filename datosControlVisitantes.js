@@ -18,6 +18,7 @@ visitantes.forEach(element => {
     let divtraeComputoExterno = document.createElement("div")
     let divmarcaEquipo = document.createElement("div")
     let divserialEquipo = document.createElement("div")
+   let divid = document.createElement("div")
 
 
     divNombreApellidos.innerHTML = element.nombreApellidos
@@ -33,10 +34,24 @@ visitantes.forEach(element => {
     divtraeComputoExterno.innerHTML = element.traeComputoExterno
     divmarcaEquipo.innerHTML = element.marcaEquipo
     divserialEquipo.innerHTML = element.serialequipo
+    divid.innerHTML = element.id
 
     divNombreApellidos.classList.add("estiloDiv")
+    divCedula.classList.add("estiloDiv")
+    divempresaGestionaPuesto.classList.add("estiloDiv")
+    divnombrePuesto.classList.add("estiloDiv")
+    divtipoSangre.classList.add("estiloDiv")
+    divnombreApellidosEmergencia.classList.add("estiloDiv")
+    divtelefonoEmergencia.classList.add("estiloDiv")
+    diveps.classList.add("estiloDiv")
+    divarl.classList.add("estiloDiv")
+    divfuncionarioGestionVisita.classList.add("estiloDiv")
+     divtraeComputoExterno.classList.add("estiloDiv")
+    divmarcaEquipo.classList.add("estiloDiv")
+    divserialEquipo.classList.add("estiloDiv")
+    divid.classList.add("estiloDiv")
 
-    divContent.append(divNombreApellidos,divCedula,divempresaGestionaPuesto,divnombrePuesto,divtipoSangre,divnombreApellidosEmergencia,divtelefonoEmergencia,
+    divContent.append(divid,divNombreApellidos,divCedula,divempresaGestionaPuesto,divnombrePuesto,divtipoSangre,divnombreApellidosEmergencia,divtelefonoEmergencia,
         diveps,divarl,divfuncionarioGestionVisita,divtraeComputoExterno,divmarcaEquipo,divserialEquipo
     )
 
@@ -44,6 +59,6 @@ visitantes.forEach(element => {
     contentDatos.appendChild(divContent)
 
     divContent.style.display = "flex"
-    divContent.style.gap = "10px"
+    
 });
 

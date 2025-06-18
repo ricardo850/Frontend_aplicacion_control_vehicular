@@ -20,9 +20,13 @@ fetch("http://localhost:8080/inicioSesion", {
     })
     .then(response => response.json())
     .then(data => {
-      if(data.mensaje == "Usuario encontrado"){
+      if(data.mensaje == "tablaExiste"){
          sessionStorage.setItem("datosVisitantes", JSON.stringify(data.datos));
         window.location.href = "datosControlVisitantes.html";
+      }else if(data.mensaje == "falso"){
+        alert("usuario no encontrado vuelva a ingresar")
+      }else if(data.mensaje == "tablaNoExiste"){
+alert("puesto no encontrado")
       }
 
     })
