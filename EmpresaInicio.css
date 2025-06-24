@@ -1,0 +1,10 @@
+
+.menu{
+    padding: 10px;
+    background-color:yellow;
+}
+
+.menu:hover{
+    background-color:mediumpurple;
+    cursor: pointer;
+}

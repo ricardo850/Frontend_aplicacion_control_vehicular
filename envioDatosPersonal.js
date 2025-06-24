@@ -18,6 +18,53 @@ let empresaGestionaPuesto = document.querySelector(".empresaGestionaPuesto")
 let NombreMarcaEquipo = document.querySelector(".nombreMarcaEquipo")
 let NombreSerialEquipo = document.querySelector(".nombreSerialEquipo")
 
+
+
+fetch("http://localhost:8080/traerEmpresa")
+        .then(response => response.json())
+        .then(data => {
+            if(data.mensaje == "true"){
+              data.datos.forEach(element => {
+                    let options = document.createElement("option")
+                    options.textContent = element.nombreBaseDatosCliente
+                    empresaGestionaPuesto.appendChild(options)
+                });
+                
+                
+            }
+        })
+
+
+
+        .catch(error => console.error('Error al enviar los datos:', error));
+
+
+        function traerPuestos(){
+fetch("http://localhost:8080/TraerPuestos",{
+           method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({empresaGestionaPuesto: empresaGestionaPuesto.value}) 
+        })
+        .then(response => response.json())
+        .then(data => {
+            if(data.mensaje == "true"){
+              data.datos.forEach(element => {
+                    nombrePuesto.innerHTML = ""
+                    let options = document.createElement("option")
+                    options.textContent = element.table_name 
+                    nombrePuesto.appendChild(options)
+                });
+                
+                
+            }
+        })
+        .catch(error => console.error('Error al enviar los datos:', error));
+        }
+        
+
+
 function EnviarDatos(event) {
     event.preventDefault();
     
@@ -125,3 +172,8 @@ marcaComputador.style.display = "block";
 
 TraeEquipo()
 traeComputo.addEventListener("change",TraeEquipo)
+
+
+traerPuestos()  
+
+empresaGestionaPuesto.addEventListener("change",traerPuestos)

@@ -1,12 +1,10 @@
 let nombreEmpresaVisitada = document.querySelector(".nombreEmpresaVisitada");
-let puestoTrabajo = document.querySelector(".puestoTrabajo");
 let contrasenaEmpresa = document.querySelector(".contrasenaEmpresa");
 let BtnSession = document.querySelector(".BtnSession")
 
 function inicioSesion() {
     let datos = {
         nombreEmpresaVisitada:nombreEmpresaVisitada.value,
-        puestoTrabajo:puestoTrabajo.value,
         contrasenaEmpresa:contrasenaEmpresa.value
     }
 
@@ -20,13 +18,10 @@ fetch("http://localhost:8080/inicioSesion", {
     })
     .then(response => response.json())
     .then(data => {
-      if(data.mensaje == "tablaExiste"){
-         sessionStorage.setItem("datosVisitantes", JSON.stringify(data.datos));
-        window.location.href = "datosControlVisitantes.html";
+      if(data.mensaje == "true"){
+        window.location.href = `EmpresaInicio.html?nombreEmpresaCliente=${encodeURIComponent(nombreEmpresaVisitada.value)}`
       }else if(data.mensaje == "falso"){
         alert("usuario no encontrado vuelva a ingresar")
-      }else if(data.mensaje == "tablaNoExiste"){
-alert("puesto no encontrado")
       }
 
     })
