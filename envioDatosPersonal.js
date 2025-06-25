@@ -40,6 +40,7 @@ fetch("http://localhost:8080/traerEmpresa")
 
 
         function traerPuestos(){
+            console.log(empresaGestionaPuesto.value)
 fetch("http://localhost:8080/TraerPuestos",{
            method: "POST",
             headers: {
@@ -50,10 +51,12 @@ fetch("http://localhost:8080/TraerPuestos",{
         .then(response => response.json())
         .then(data => {
             if(data.mensaje == "true"){
+                nombrePuesto.innerHTML = ""
               data.datos.forEach(element => {
-                    nombrePuesto.innerHTML = ""
+                    
                     let options = document.createElement("option")
-                    options.textContent = element.table_name 
+                    options.textContent = element.nombrepuesto
+                    options.value = element.nombrePuesto
                     nombrePuesto.appendChild(options)
                 });
                 
