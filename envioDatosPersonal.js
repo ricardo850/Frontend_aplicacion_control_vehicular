@@ -40,7 +40,7 @@ function traerPuestos() {
         return;
     }
 
-    nombrePuesto.innerHTML = "";
+    nombrePuesto.innerHTML = ""; // limpia opciones anteriores
 
     fetch("http://localhost:8080/TraerPuestos", {
         method: "POST",

@@ -1,62 +1,46 @@
 
+let DivnombreEmpresa = document.querySelector(".nombreEmpresa")
+let selectpuestos = document.querySelector(".puestos")
+let params = new URLSearchParams(window.location.search);
+let nombre = params.get("nombreEmpresaCliente");
+
+DivnombreEmpresa.textContent = nombre
 
 
-visitantes.forEach(element => {
-    let divContent = document.createElement("div")
-    let divNombreApellidos = document.createElement("div")
-    let divCedula = document.createElement("div")
-    let divempresaGestionaPuesto = document.createElement("div")
-    let divnombrePuesto = document.createElement("div")
-    let divtipoSangre = document.createElement("div")
-    let divnombreApellidosEmergencia = document.createElement("div")
-    let divtelefonoEmergencia = document.createElement("telefonoEmergencia")
-    let diveps = document.createElement("div")
-    let divarl = document.createElement("div")
-    let divfuncionarioGestionVisita = document.createElement("div")
-    let divtraeComputoExterno = document.createElement("div")
-    let divmarcaEquipo = document.createElement("div")
-    let divserialEquipo = document.createElement("div")
-   let divid = document.createElement("div")
+function traerPuestos() {
+    if (!DivnombreEmpresa.textContent || DivnombreEmpresa.textContent.trim() === "") {
+        selectpuestos.innerHTML = "<option>Seleccione una empresa primero</option>";
+        return;
+    }
 
+    selectpuestos.innerHTML = ""; // limpia opciones anteriores
 
-    divNombreApellidos.innerHTML = element.nombreApellidos
-    divCedula.innerHTML = element.cedula
-    divempresaGestionaPuesto.innerHTML = element.empresaGestionaPuesto
-    divnombrePuesto.innerHTML = element.nombrePuesto
-    divtipoSangre.innerHTML = element.tipoSangre
-    divnombreApellidosEmergencia.innerHTML = element.nombreApellidosEmergencia
-    divtelefonoEmergencia.innerHTML = element.telefonoEmergencia
-    diveps.innerHTML = element.eps
-    divarl.innerHTML = element.arl
-    divfuncionarioGestionVisita.innerHTML = element.funcionarioGestionaVisita
-    divtraeComputoExterno.innerHTML = element.traeComputoExterno
-    divmarcaEquipo.innerHTML = element.marcaEquipo
-    divserialEquipo.innerHTML = element.serialequipo
-    divid.innerHTML = element.id
+    fetch("http://localhost:8080/TraerPuestos", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ empresaGestionaPuesto: DivnombreEmpresa.textContent })
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.mensaje === "true") {
+            selectpuestos.innerHTML = ""; // Limpia antes de agregar nuevas opciones
+            data.datos.forEach(element => {
+                let option = document.createElement("option");
+                option.textContent = element.puesto || "Nombre desconocido";
+                selectpuestos.appendChild(option);
+            });
+        } else {
+            selectpuestos.innerHTML = "<option>No hay puestos disponibles</option>";
+        }
+    })
+    .catch(error => console.error('Error al enviar los datos:', error));
+}
 
-    divNombreApellidos.classList.add("estiloDiv")
-    divCedula.classList.add("estiloDiv")
-    divempresaGestionaPuesto.classList.add("estiloDiv")
-    divnombrePuesto.classList.add("estiloDiv")
-    divtipoSangre.classList.add("estiloDiv")
-    divnombreApellidosEmergencia.classList.add("estiloDiv")
-    divtelefonoEmergencia.classList.add("estiloDiv")
-    diveps.classList.add("estiloDiv")
-    divarl.classList.add("estiloDiv")
-    divfuncionarioGestionVisita.classList.add("estiloDiv")
-     divtraeComputoExterno.classList.add("estiloDiv")
-    divmarcaEquipo.classList.add("estiloDiv")
-    divserialEquipo.classList.add("estiloDiv")
-    divid.classList.add("estiloDiv")
-
-    divContent.append(divid,divNombreApellidos,divCedula,divempresaGestionaPuesto,divnombrePuesto,divtipoSangre,divnombreApellidosEmergencia,divtelefonoEmergencia,
-        diveps,divarl,divfuncionarioGestionVisita,divtraeComputoExterno,divmarcaEquipo,divserialEquipo
-    )
-
-
-    contentDatos.appendChild(divContent)
-
-    divContent.style.display = "flex"
-    
+document.addEventListener("DOMContentLoaded", function() {
+ 
+  console.log("La página ya se cargó y el DOM está listo");
+  
+  traerPuestos()
 });
-
