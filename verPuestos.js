@@ -4,9 +4,11 @@ let selectpuestos = document.querySelector(".puestos")
 let params = new URLSearchParams(window.location.search);
 let nombre = params.get("nombreEmpresaCliente");
 
+let contrasena = document.querySelector(".contrasena")
+
 DivnombreEmpresa.textContent = nombre
 
-
+let EnviarPuesto = document.querySelector(".EnviarPuesto")
 function traerPuestos() {
     if (!DivnombreEmpresa.textContent || DivnombreEmpresa.textContent.trim() === "") {
         selectpuestos.innerHTML = "<option>Seleccione una empresa primero</option>";
@@ -44,3 +46,35 @@ document.addEventListener("DOMContentLoaded", function() {
   
   traerPuestos()
 });
+
+
+
+
+function traerDatosPuesto(){
+
+    let datos = {
+        nombreBaseDatosDatos:DivnombreEmpresa.innerHTML,
+        nombrepuesto:selectpuestos.value,
+        contrasena:contrasena.value
+    }
+fetch("http://localhost:8080/TraerPuestosInformacion", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(datos)
+    })
+    .then(response => response.json())
+    .then(data => {
+        if (data.mensaje === "ok") {
+            sessionStorage.setItem("resultadosDatos", JSON.stringify(data.datos));
+            window.location.href = "mostrarInformacionPuestos.html"
+        } else {
+            alert("el puesto nos  encuentra")
+        }
+    })
+    .catch(error => console.error('Error al enviar los datos:', error));
+
+}
+  
+EnviarPuesto.addEventListener("click",traerDatosPuesto)

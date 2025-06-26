@@ -6,13 +6,15 @@ console.log(nombre)
 let nombreBaseDatosDatos = document.querySelector(".nombreBaseDatosDatos")
 let puesto = document.querySelector(".puesto")
 let enviar = document.querySelector(".enviar")
+let contrasena = document.querySelector(".contrasena")
 
 nombreBaseDatosDatos.innerHTML = nombre
 
 function crearPuesto() {
     let datos = {
         nombreBaseDatosDatos:nombreBaseDatosDatos.textContent,
-        puesto:puesto.value
+        puesto:puesto.value,
+        contrasena:contrasena.value
     }
 
 fetch("http://localhost:8080/crearPuesto", {
