@@ -5,3 +5,10 @@ align-items: center;
 justify-content: center; 
 height: 100vh;  
 }
+
+
+.estiloDiv{
+height: auto;
+width: auto;
+padding: 10px;
+}

@@ -67,7 +67,7 @@ fetch("http://localhost:8080/TraerPuestosInformacion", {
     .then(response => response.json())
     .then(data => {
         if (data.mensaje === "ok") {
-            sessionStorage.setItem("resultadosDatos", JSON.stringify(data.datos));
+            localStorage.setItem("resultadosDatos", JSON.stringify(data.datos));
             window.location.href = "mostrarInformacionPuestos.html"
         } else {
             alert("el puesto nos  encuentra")

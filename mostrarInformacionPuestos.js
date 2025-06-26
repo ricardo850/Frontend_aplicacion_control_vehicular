@@ -1,48 +1,67 @@
-let content = document.querySelector(".content")
-let datos = JSON.parse(sessionStorage.getItem("resultadosDatos"));
+let content = document.querySelector(".content");
+let datos = JSON.parse(localStorage.getItem("resultadosDatos") || "[]");
+
+// Crear la tabla y encabezado solo una vez
+const tabla = document.createElement("table");
+tabla.border = "1";
+tabla.style.borderCollapse = "collapse";
+tabla.style.width = "100%";
+
+// Crear encabezado
+const thead = document.createElement("thead");
+const encabezado = document.createElement("tr");
+
+const columnas = [
+    "ID", "Nombre y Apellidos", "Cédula", "Empresa", "Puesto", "Tipo de Sangre",
+    "Nombre Emergencia", "Teléfono Emergencia", "EPS", "ARL",
+    "Funcionario Visita", "¿Trae Computo Externo?", "Marca Equipo", "Serial Equipo"
+];
+
+columnas.forEach(texto => {
+    const th = document.createElement("th");
+    th.textContent = texto;
+    th.style.padding = "8px";
+    th.style.backgroundColor = "#f2f2f2";
+    th.style.border = "1px solid #ccc";
+    encabezado.appendChild(th);
+});
+
+thead.appendChild(encabezado);
+tabla.appendChild(thead);
+
+// Crear cuerpo de la tabla
+const tbody = document.createElement("tbody");
 
 datos.forEach(element => {
-    let divContent = document.createElement("div")
-    let divNombreApellidos = document.createElement("div")
-    let divCedula = document.createElement("div")
-    let divempresaGestionaPuesto = document.createElement("div")
-    let divnombrePuesto = document.createElement("div")
-    let divtipoSangre = document.createElement("div")
-    let divnombreApellidosEmergencia = document.createElement("div")
-    let divtelefonoEmergencia = document.createElement("div")
-    let diveps = document.createElement("div")
-    let divarl = document.createElement("div")
-    let divfuncionarioGestionVisita = document.createElement("div")
-    let divtraeComputoExterno = document.createElement("div")
-    let divmarcaEquipo = document.createElement("div")
-    let divserialEquipo = document.createElement("div")
-    let divid = document.createElement("div")
+    const fila = document.createElement("tr");
 
-    divNombreApellidos.innerHTML = element.nombreApellidos
-    divCedula.innerHTML = element.cedula
-    divempresaGestionaPuesto.innerHTML = element.empresaGestionaPuesto
-    divnombrePuesto.innerHTML = element.nombrePuesto
-    divtipoSangre.innerHTML = element.tipoSangre
-    divnombreApellidosEmergencia.innerHTML = element.nombreApellidosEmergencia
-    divtelefonoEmergencia.innerHTML = element.telefonoEmergencia
-    diveps.innerHTML = element.eps
-    divarl.innerHTML = element.arl
-    divfuncionarioGestionVisita.innerHTML = element.funcionarioGestionaVisita
-    divtraeComputoExterno.innerHTML = element.traeComputoExterno
-    divmarcaEquipo.innerHTML = element.marcaEquipo
-    divserialEquipo.innerHTML = element.serialequipo
-    divid.innerHTML = element.id
-
-    const elementos = [
-        divNombreApellidos, divCedula, divempresaGestionaPuesto, divnombrePuesto, divtipoSangre,
-        divnombreApellidosEmergencia, divtelefonoEmergencia, diveps, divarl, divfuncionarioGestionVisita,
-        divtraeComputoExterno, divmarcaEquipo, divserialEquipo, divid
+    const celdas = [
+        element.id,
+        element.nombreApellidos,
+        element.cedula,
+        element.empresaGestionaPuesto,
+        element.nombrePuesto,
+        element.tipoSangre,
+        element.nombreApellidosEmergencia,
+        element.telefonoEmergencia,
+        element.eps,
+        element.arl,
+        element.funcionarioGestionaVisita,
+        element.traeComputoExterno,
+        element.marcaEquipo,
+        element.serialequipo
     ];
 
-    elementos.forEach(el => el.classList.add("estiloDiv"));
+    celdas.forEach(valor => {
+        const td = document.createElement("td");
+        td.textContent = valor || "N/A";
+        td.style.padding = "8px";
+        td.style.border = "1px solid #ccc";
+        fila.appendChild(td);
+    });
 
-    divContent.append(...elementos)
-    divContent.style.display = "flex"
-
-    content.appendChild(divContent)
+    tbody.appendChild(fila);
 });
+
+tabla.appendChild(tbody);
+content.appendChild(tabla);
