@@ -1,27 +1,9 @@
-.DivContentInicioSesion{
-display: flex;
+.formInicioSesion{
+    display: flex;
 flex-direction: column;
 align-items: center;
-justify-content: center;
-width: 300px;
-gap: 20px;
-border: 2px solid black;
-padding: 10px 10px 10px 10px;
-height: 300px;
-background-color: rgb(205, 211, 205);
+justify-content: center; 
 }
-
-#BtnInicioSesion{
-    height: 40px;
-    width: 120px;
-    background-color: aqua;
-}
-
-#BtnInicioSesion:hover{
-    background-color:yellow;
-}
-
-
 
 body{
    display: flex;

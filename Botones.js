@@ -1,22 +1,30 @@
+let correo = document.querySelector(".correo")
+let contrasena = document.querySelector(".contrasena")
 
-let BTNInicioSesion = document.querySelector(".BTNInicioSesion");
-let BTNRegistrarse = document.querySelector(".BTNRegistrarse")
-let BTNCrearPuesto = document.querySelector(".BTNCrearPuesto")
-let BTNInicioAdministrador = document.querySelector(".BTNInicioAdministrador")
+let btnEnviar = document.querySelector(".btnEnviar")
+
+function inicioSesion(){
+    datos = {
+        correo:correo.value,
+        contrasena:contrasena.value
+    }
 
 
-BTNCrearPuesto.addEventListener("click",() => {
-window.location.href = "CrearBaseDatosclientes.html";
-} )
+    fetch("http://localhost:8080/inicioSesion", {
+        method :"POST",
+        headers : {
+            "Content-Type": "application/json"
+        },
 
-BTNRegistrarse.addEventListener("click",() => {
-window.location.href = "Formulario visitantes.html";
-} )
+        body : JSON.stringify(datos)
+    })
+    .then(response => response.json())
+    .then(data => {
+      if(data.mensaje == "true"){
+       alert("el puesto se creo")
+      }else {
+        alert("el puesto no se creo")
+      }
 
-BTNInicioSesion.addEventListener("click",() => {
-window.location.href = "inicioSesion.html";
-} )
-
-BTNInicioAdministrador.addEventListener("click",() => {
-window.location.href = "perfilAdministrador.html";
-} )
+    })
+}
