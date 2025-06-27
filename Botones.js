@@ -21,10 +21,15 @@ function inicioSesion(){
     .then(response => response.json())
     .then(data => {
       if(data.mensaje == "true"){
-       alert("el puesto se creo")
+       array.forEach(element => {
+        if(element.correo ==  "richardmurillo789@gmail.com" && element.contrasena == "richard3253"){
+
+        }alert("perfil administrador")
+       });
       }else {
         alert("el puesto no se creo")
       }
 
     })
+
 }
