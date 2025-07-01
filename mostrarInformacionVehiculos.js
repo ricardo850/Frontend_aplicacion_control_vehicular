@@ -53,7 +53,7 @@ data.datos.forEach(element => {
 
     const celdas = [
         element.id,
-        element.nombreApellidos,
+        element.nombreApellidoIngreso,
         element.cedula,
         element.empresaGestionaPuesto,
         element.nombrePuesto,
