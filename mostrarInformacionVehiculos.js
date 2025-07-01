@@ -1,14 +1,14 @@
+let datosBaseDatos = JSON.parse(localStorage.getItem("nombreEmpresa") || "[]");
+let datosPuesto = JSON.parse(localStorage.getItem("puesto") || "[]");
 let content = document.querySelector(".content");
-let puesto = JSON.parse(localStorage.getItem("puesto") || "[]");
-let nombreEmpresa = JSON.parse(localStorage.getItem("nombreEmpresa"));
+function VerVehiculos() {
 
-function TraerDatos() {
     let datos = {
-        nombreBaseDatosDatos:nombreEmpresa,
-        nombrepuesto:puesto
+        empresaGestionaPuesto:datosBaseDatos,
+        nombrePuesto:datosPuesto
     }
 
-fetch("http://localhost:8080/VerPuestosInformacion", {
+fetch("http://localhost:8080/verVehiculos", {
         method :"POST",
         headers : {
             "Content-Type": "application/json"
@@ -19,20 +19,18 @@ fetch("http://localhost:8080/VerPuestosInformacion", {
     .then(response => response.json())
     .then(data => {
       if(data.mensaje == "ok"){
-        // Crear la tabla y encabezado solo una vez
+      
 const tabla = document.createElement("table");
 tabla.border = "1";
 tabla.style.borderCollapse = "collapse";
 tabla.style.width = "100%";
 
-// Crear encabezado
 const thead = document.createElement("thead");
 const encabezado = document.createElement("tr");
 
 const columnas = [
-    "ID", "Nombre y Apellidos", "Cédula", "Empresa", "Puesto", "Tipo de Sangre",
-    "Nombre Emergencia", "Teléfono Emergencia", "EPS", "ARL",
-    "Funcionario Visita", "¿Trae Computo Externo?", "Marca Equipo", "Serial Equipo"
+    "ID", "Nombre y Apellidos", "Cédula", "Empresa", "Puesto", "Tipo de vehiculo",
+    "placa vehiculo", "observaciones",
 ];
 
 columnas.forEach(texto => {
@@ -59,15 +57,9 @@ data.datos.forEach(element => {
         element.cedula,
         element.empresaGestionaPuesto,
         element.nombrePuesto,
-        element.tipoSangre,
-        element.nombreApellidosEmergencia,
-        element.telefonoEmergencia,
-        element.eps,
-        element.arl,
-        element.funcionarioGestionaVisita,
-        element.traeComputoExterno,
-        element.marcaEquipo,
-        element.serialequipo
+        element.tipoVehiculo,
+        element.numeroPlaca,
+        element.observacion,
     ];
 
     celdas.forEach(valor => {
@@ -84,16 +76,13 @@ data.datos.forEach(element => {
 tabla.appendChild(tbody);
 content.appendChild(tabla);
 
-      }else if(data.mensaje == "falso"){
-        alert("datos no encontrados")
+    
+      }
+    }
+      )
       }
 
-    })
 
-
-}
-
-
-document.addEventListener("DOMContentLoaded", function () {
-    TraerDatos()
+      document.addEventListener("DOMContentLoaded", function () {
+    VerVehiculos()
 });

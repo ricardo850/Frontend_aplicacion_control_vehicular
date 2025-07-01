@@ -1,42 +1,39 @@
-let contentDatos = document.querySelector(".contentDatos")
-let params = new URLSearchParams(window.location.search);
-let nombre = params.get("nombreEmpresaCliente");
-console.log(nombre)
+document.addEventListener("DOMContentLoaded", function () {
+    let contentDatos = document.querySelector(".contentDatos");
 
-let nombreBaseDatosDatos = document.querySelector(".nombreBaseDatosDatos")
-let puesto = document.querySelector(".puesto")
-let enviar = document.querySelector(".enviar")
-let contrasena = document.querySelector(".contrasena")
+    let nombreBaseDatosDatos = document.querySelector(".nombreBaseDatosDatos");
+    let puesto = document.querySelector(".puesto");
+    let enviar = document.querySelector(".enviar");
+    let contrasena = document.querySelector(".contrasena");
 
-nombreBaseDatosDatos.innerHTML = nombre
+let nombreEmpresa = JSON.parse(localStorage.getItem("nombreEmpresa"));
 
-function crearPuesto() {
-    let datos = {
-        nombreBaseDatosDatos:nombreBaseDatosDatos.textContent,
-        puesto:puesto.value,
-        contrasena:contrasena.value
+        nombreBaseDatosDatos.textContent = nombreEmpresa;
+   
+    function crearPuesto() {
+        let datos = {
+            nombreBaseDatosDatos: nombreBaseDatosDatos.textContent,
+            nombrepuesto: puesto.value,
+            contrasena: contrasena.value
+        };
+
+        fetch("http://localhost:8080/crearPuesto", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(datos)
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.mensaje === "true") {
+                alert("El puesto se creó correctamente");
+            } else {
+                alert("No se pudo crear el puesto");
+            }
+        })
+        .catch(error => console.error("Error al crear el puesto:", error));
     }
 
-fetch("http://localhost:8080/crearPuesto", {
-        method :"POST",
-        headers : {
-            "Content-Type": "application/json"
-        },
-
-        body : JSON.stringify(datos)
-    })
-    .then(response => response.json())
-    .then(data => {
-      if(data.mensaje == "true"){
-       alert("el puesto se creo")
-      }else {
-        alert("el puesto no se creo")
-      }
-
-    })
-
-
-}
-
-
-enviar.addEventListener("click",crearPuesto)
+    enviar.addEventListener("click", crearPuesto);
+});

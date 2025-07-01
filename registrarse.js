@@ -1,18 +1,20 @@
+let nombres = document.querySelector(".nombres")
+let apellidos = document.querySelector(".apellidos")
 let correo = document.querySelector(".correo")
 let contrasena = document.querySelector(".contrasena")
+let btnEnviar = document.querySelector(".btnEnviar")
 let empresa = document.querySelector(".empresa")
 
-let btnEnviar = document.querySelector(".btnEnviar")
-
-function inicioSesion(){
-    datos = {
+function inicioSesion() {
+    let datos = {
+        nombres:nombres.value,
+        apellidos:apellidos.value,
         empresa:empresa.value,
         correo:correo.value,
         contrasena:contrasena.value
     }
 
-
-    fetch("http://localhost:8080/inicioSesion", {
+fetch("http://localhost:8080/insertarDatosInicioSesion", {
         method :"POST",
         headers : {
             "Content-Type": "application/json"
@@ -22,15 +24,12 @@ function inicioSesion(){
     })
     .then(response => response.json())
     .then(data => {
-      if(data.mensaje == "true"){
-       window.location.href = "EmpresaInicio.html";
-       
-       localStorage.setItem("nombreEmpresa" , JSON.stringify(empresa.value))
-      }else{
-        alert("usuario no encontrado")
+      if(data.mensaje == "ok"){
+       alert("registro exitoso")
       }
     })
 
+
 }
 
-btnEnviar.addEventListener("click" , inicioSesion)
+btnEnviar.addEventListener("click",inicioSesion)

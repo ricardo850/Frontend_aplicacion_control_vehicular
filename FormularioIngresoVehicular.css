@@ -5,47 +5,47 @@
 
 body {
   margin: 0;
-  background: linear-gradient(to right, #b2f1e3, #a7e9c1);
+  padding: 0;
+  background: linear-gradient(to right, #b2ebf2, #a7ffeb);
+  min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 30px;
-  min-height: 100vh;
 }
 
-/* FORMULARIO VISITANTES */
 .contenedor-formulario {
-  background: linear-gradient(to bottom right, #e0f7fa, #b2dfdb);
-  padding: 40px;
+  background: white;
+  padding: 40px 30px;
   border-radius: 20px;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-  max-width: 700px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  max-width: 500px;
   width: 100%;
 }
 
-#formularioVisitante {
+form {
   display: flex;
   flex-direction: column;
-  gap: 18px;
+  gap: 15px;
 }
 
 .cabecera-formulario {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  margin-bottom: 10px;
+  justify-content: space-between;
+  margin-bottom: 20px;
 }
 
-.cabecera-formulario h1 {
+.titulo-form {
+  color: #00796b;
+  font-size: 1.5rem;
   margin: 0;
-  color: #00695c;
 }
 
 .btn-volver {
   text-decoration: none;
   background-color: #ffd54f;
   color: black;
-  padding: 8px 16px;
+  padding: 8px 14px;
   border-radius: 20px;
   font-weight: bold;
   transition: background-color 0.3s ease;
@@ -55,21 +55,20 @@ body {
   background-color: #f9a825;
 }
 
-p {
-  margin: 0 0 5px;
-  font-weight: 600;
+label {
+  font-weight: bold;
   color: #333;
+  margin-top: 10px;
 }
 
 input[type="text"],
 select {
-  width: 100%;
-  height: 40px;
-  padding: 8px 12px;
-  border: 1px solid #ccc;
+  padding: 10px;
   border-radius: 8px;
+  border: 1px solid #ccc;
   font-size: 14px;
   transition: border-color 0.3s ease;
+  width: 100%;
 }
 
 input:focus,
@@ -78,20 +77,18 @@ select:focus {
   outline: none;
 }
 
-button.EnviarDatos {
-  height: 45px;
-  width: 100%;
+.btnEnviarVehiculo {
   background-color: #26a69a;
   color: white;
-  border: none;
-  border-radius: 10px;
+  padding: 12px;
   font-size: 16px;
-  font-weight: bold;
+  border: none;
+  border-radius: 8px;
   cursor: pointer;
-  
+  transition: background-color 0.3s ease;
+  margin-top: 20px;
 }
 
-button.EnviarDatos:hover {
+.btnEnviarVehiculo:hover {
   background-color: #00796b;
-  transform: scale(1.02);
 }

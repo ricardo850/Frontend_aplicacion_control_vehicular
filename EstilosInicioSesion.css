@@ -1,15 +1,109 @@
-.formInicioSesion{
-    display: flex;
-flex-direction: column;
-align-items: center;
-justify-content: center; 
+* {
+  box-sizing: border-box;
+  font-family: 'Segoe UI', sans-serif;
 }
 
-body{
-   display: flex;
-flex-direction: column;
-align-items: center;
-justify-content: center; 
-height: 100vh;  
+body {
+  margin: 0;
+  background: linear-gradient(to right, #b2f1e3, #a7e9c1);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
 
+.contenedor {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 40px;
+}
+
+.card {
+  background-color: white;
+  padding: 40px 30px;
+  border-radius: 16px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  width: 320px;
+}
+
+.titulo-registrarse {
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.titulo-registrarse a {
+  text-decoration: none;
+  color: #00796b;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.formInicioSesion h1 {
+  text-align: center;
+  color: #00796b;
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  margin-top: 12px;
+  margin-bottom: 4px;
+  font-weight: 600;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  transition: border-color 0.3s ease;
+}
+
+input:focus {
+  border-color: #26a69a;
+  outline: none;
+}
+
+.btnEnviar {
+  margin-top: 20px;
+  width: 100%;
+  padding: 12px;
+  background-color: #26a69a;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.btnEnviar:hover {
+  background-color: #00796b;
+}
+
+.enlaces-laterales {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  align-items: center;
+}
+
+.enlaces-laterales a {
+  background-color: #26a69a;
+  color: white;
+  padding: 12px 24px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 15px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  transition: background-color 0.3s ease, transform 0.2s;
+}
+
+.enlaces-laterales a:hover {
+  background-color: #00796b;
+  transform: scale(1.05);
+}

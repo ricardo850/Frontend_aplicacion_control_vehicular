@@ -1,12 +1,14 @@
 
 let DivnombreEmpresa = document.querySelector(".nombreEmpresa")
 let selectpuestos = document.querySelector(".puestos")
-let params = new URLSearchParams(window.location.search);
-let nombre = params.get("nombreEmpresaCliente");
+
+
+
+let nombreEmpresa = JSON.parse(localStorage.getItem("nombreEmpresa"));
 
 let contrasena = document.querySelector(".contrasena")
 
-DivnombreEmpresa.textContent = nombre
+DivnombreEmpresa.textContent = nombreEmpresa
 
 let EnviarPuesto = document.querySelector(".EnviarPuesto")
 function traerPuestos() {
@@ -67,8 +69,8 @@ fetch("http://localhost:8080/TraerPuestosInformacion", {
     .then(response => response.json())
     .then(data => {
         if (data.mensaje === "ok") {
-            localStorage.setItem("resultadosDatos", JSON.stringify(data.datos));
             window.location.href = "mostrarInformacionPuestos.html"
+            localStorage.setItem("puesto" , JSON.stringify(selectpuestos.value))
         } else {
             alert("el puesto nos  encuentra")
         }

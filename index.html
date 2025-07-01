@@ -1,21 +1,43 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
-  <link rel="stylesheet" href="EstilosInicioSesion.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Login</title>
+  <link rel="stylesheet" href="EstilosInicioSesion.css" />
 </head>
 <body>
-<form class="formInicioSesion" >
-  <label>Digita tu correo</label>
-  <input type="text" name="correo" class="correo"><br>
+  <div class="contenedor">
+    <!-- Login Card -->
+    <div class="card">
+      <h2 class="titulo-registrarse">
+        <a href="registrarse.html">¿No tienes cuenta? Registrarse</a>
+      </h2>
 
-  <label>Digita tu contraseña</label>
-  <input type="password" name="contrasena" class="contrasena">
+      <form class="formInicioSesion">
+        <h1>Login</h1>
 
-  <input type="button" class="btnEnviar" value="enviar">
-</form>
+        <label for="empresa">Empresa</label>
+        <input type="text" class="empresa" name="empresa" placeholder="Ingresa tu empresa" required>
+
+        <label for="correo">Correo</label>
+        <input type="email" class="correo" name="correo" placeholder="Ingresa tu correo" required>
+
+        <label for="contrasena">Contraseña</label>
+        <input type="password" class="contrasena" name="contrasena" placeholder="Ingresa tu contraseña" required>
+
+        <button class="btnEnviar" >Iniciar sesión</button>
+      </form>
+    </div>
+
+    
+    <div class="enlaces-laterales">
+      <a href="Formulario visitantes.html">Formulario Visitantes</a>
+      <a href="perfilAdministrador.html">Perfil Administrador</a>
+      <a href="FormularioIngresoVehicular.html">Formulario ingreso de vehiculos</a>
+    </div>
+  </div>
+
   <script src="Botones.js"></script>
 </body>
 </html>

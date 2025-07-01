@@ -25,8 +25,8 @@ fetch("http://localhost:8080/traerEmpresa")
         if (data.mensaje === "true") {
             data.datos.forEach(element => {
                 let option = document.createElement("option");
-                option.textContent = element.nombreBaseDatosCliente;
-                option.value = element.nombreBaseDatosCliente; 
+                option.textContent = element.empresa;
+                option.value = element.empresa; 
                 empresaGestionaPuesto.appendChild(option);
             });
         }

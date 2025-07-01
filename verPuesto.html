@@ -1,33 +1,31 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="mostrarDatos.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ver Puestos</title>
+  <link rel="stylesheet" href="verPuesto.css" />
 </head>
 <body>
-    
-    <form>
 
-        <div>
-            <h5>empresa del puesto</h5>
-     <p class="nombreEmpresa"></p>
-    
-    
+  <form class="formVerPuestos">
+    <a href="EmpresaInicio.html" class="btn-volver">← Volver</a>
+    <div class="bloque">
+      <h2>Empresa del Puesto</h2>
+      <p class="nombreEmpresa"></p>
     </div>
-      <p>selecciona un puesto para ver los registros y tener un control de ingreso de entrada</p>
-     <select name="puestos" class="puestos">
-        <option >seleccionar el puesto</option>
-     </select><br><br>
 
-     <p>contraseña del inicio de sesion del puesto</p>
-      <input type="text" class="contrasena" name="contrasena"><br><br>
- 
-<input type="button" class="EnviarPuesto" value="ver registro de visitantes">
+    <p>Selecciona un puesto para ver los registros y tener un control de ingreso:</p>
+    <select name="puestos" class="puestos">
+      <option>Seleccionar el puesto</option>
+    </select>
 
-    </form>
+    <p>Contraseña del inicio de sesión del puesto:</p>
+    <input type="text" class="contrasena" name="contrasena" />
 
-    <script src="verPuestos.js"></script>
+    <input type="button" class="EnviarPuesto" value="Ver registro de visitantes" />
+  </form>
+
+  <script src="verPuestos.js"></script>
 </body>
 </html>

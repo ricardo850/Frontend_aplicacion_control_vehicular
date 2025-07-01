@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ingreso Vehicular</title>
+  <link rel="stylesheet" href="FormularioIngresoVehicular.css" />
+</head>
+<body>
+  <main class="contenedor-formulario">
+    <form>
+      <div class="cabecera-formulario">
+        <a href="index.html" class="btn-volver">← Volver</a>
+        <h2 class="titulo-form">Ingreso Vehicular</h2>
+      </div>
+
+      <section>
+        <label for="nombreApellidoIngreso">Nombre y apellidos de quien ingresa</label>
+        <input type="text" class="nombreApellidoIngreso" name="nombreApellidoIngreso" placeholder="Ej. Juan Pérez" required />
+
+        <label for="cedula">Número de identificación</label>
+        <input type="text" class="cedula" name="cedula" placeholder="Ej. 1234567890" required />
+      </section>
+
+      <section>
+        <label >Empresa que gestiona el puesto</label>
+        <select class="empresaGestionaPuesto" name="empresaGestionaPuesto" required>
+          <option disabled selected>Selecciona la empresa</option>
+        </select>
+
+        <label>Nombre del puesto al que ingresa</label>
+        <select class="nombrePuesto" name="nombrePuesto" required>
+          <option disabled selected>Selecciona el puesto</option>
+        </select>
+      </section>
+
+      <label for="tipoVehiculo">Tipo de vehículo</label>
+      <select class="tipoVehiculo" name="tipoVehiculo" required>
+        <option disabled selected>Seleccione el tipo de vehículo</option>
+        <option value="Carro">Carro</option>
+        <option value="Moto">Moto</option>
+        <option value="Bicicleta">Bicicleta</option>
+        <option value="Patineta eléctrica">Patineta eléctrica</option>
+      </select>
+
+      <label for="numeroPlaca">Número de placa</label>
+      <input type="text" class="numeroPlaca" name="numeroPlaca" placeholder="Ej. ABC-123" required />
+
+      <label for="observacion">¿Tienes alguna observación?</label>
+      <input type="text" class="observacion" name="observacion" placeholder="Escribe aquí tu observación (opcional)" />
+
+      <button type="button" class="btnEnviarVehiculo">Enviar</button>
+    </form>
+  </main>
+
+  <script src="FormularioIngresoVehicular.js"></script>
+</body>
+</html>
