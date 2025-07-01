@@ -1,6 +1,108 @@
-.ContentPuestos{
-   display: flex;
-   align-items: center;
-   justify-content: center;
-   gap: 25px;
+/* Reset básico */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Estilo del cuerpo */
+body {
+    background-color: #f0f2f5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+/* Botón volver */
+.btn-volver {
+    text-decoration: none;
+    background-color: #ffd54f;
+    color: black;
+    padding: 8px 14px;
+    border-radius: 20px;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    display: inline-block;
+    margin-bottom: 1.5rem;
+}
+
+/* Contenedor del formulario */
+form {
+    background-color: #fff;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+}
+
+/* Título */
+form h1 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    color: #333;
+}
+
+/* Etiquetas */
+label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: #555;
+}
+
+/* Campos de entrada */
+input[type="email"],
+input[type="password"] {
+    width: 100%;
+    padding: 0.75rem;
+    margin-bottom: 1.2rem;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    transition: border-color 0.3s;
+}
+
+input[type="email"]:focus,
+input[type="password"]:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+/* Botón enviar */
+.btnEnviar {
+    width: 100%;
+    padding: 0.75rem;
+    background-color: #007bff;
+    border: none;
+    color: #fff;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.btnEnviar:hover {
+    background-color: #0056b3;
+}
+
+/* Mensaje de error */
+.mensaje-error {
+    margin-top: 1rem;
+    color: red;
+    font-weight: bold;
+    text-align: center;
+}
+
+
+
+.btn-volver {
+  text-decoration: none;
+  background-color: #ffd54f;
+  color: black;
+  padding: 8px 14px;
+  border-radius: 20px;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
 }
