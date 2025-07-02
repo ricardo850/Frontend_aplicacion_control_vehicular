@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Formulario Visitantes</title>
+  <link rel="stylesheet" href="formularioVisitantes.css" />
+</head>
+
+<body>
+  <div class="contenedor-formulario">
+    <form method="post" id="formularioVisitante">
+      <div class="cabecera-formulario">
+        <a href="/Inicio_sesion/index.html" class="btn-volver">← Volver</a>
+        <h1>Regístrese</h1>
+      </div>
+
+      <div>
+        <p>Nombre y apellidos de quien ingresa:</p>
+        <input type="text" class="nombreApellido" name="nombreApellidos" />
+      </div>
+
+      <div>
+        <p>Número de identificación:</p>
+        <input type="text" class="cedula" name="cedula" />
+      </div>
+
+      <div>
+        <p>Empresa que gestiona el puesto:</p>
+        <select class="empresaGestionaPuesto" name="empresaGestionaPuesto">
+          <option>Selecciona la empresa</option>
+        </select>
+      </div>
+
+      <div>
+        <p>Nombre del puesto al que ingresa:</p>
+        <select class="nombrePuesto" name="nombrePuesto">
+          <option>Selecciona el puesto</option>
+        </select>
+      </div>
+
+      <div>
+        <p>Elija su tipo de sangre:</p>
+        <select class="tipoSangre" name="tipoSangre">
+          <option value="Seleccione">Seleccione</option>
+          <option value="A+">A+</option>
+          <option value="A-">A-</option>
+          <option value="B+">B+</option>
+          <option value="B-">B-</option>
+          <option value="AB+">AB+</option>
+          <option value="AB-">AB-</option>
+          <option value="O+">O+</option>
+          <option value="O-">O-</option>
+        </select>
+      </div>
+
+      <div>
+        <p>Nombre y apellidos de contacto de emergencia:</p>
+        <input type="text" class="nombreContactoEmergencia" name="nombreContactoEmergencia" />
+      </div>
+
+      <div>
+        <p>Teléfono de contacto de emergencia:</p>
+        <input type="text" class="telefonoContactoEmergencia" name="telefonoContactoEmergencia" />
+      </div>
+
+      <div>
+        <p>Escribe tu EPS:</p>
+        <input type="text" class="eps" name="eps" />
+      </div>
+
+      <div>
+        <p>Escribe tu ARL:</p>
+        <input type="text" class="arl" name="arl" />
+      </div>
+
+      <div>
+        <p>Funcionario que gestionará la visita:</p>
+        <input type="text" class="funcionarioGestionaVisita" name="funcionarioGestionaVisita" />
+      </div>
+
+      <div>
+        <p>¿Trae computador externo?</p>
+        <select class="traeComputo" name="traeComputo">
+          <option value="Seleccione">Seleccione</option>
+          <option value="Si">Sí</option>
+          <option value="No">No</option>
+        </select>
+      </div>
+
+      <div>
+        <p class="nombreMarcaEquipo">Marca del equipo:</p>
+        <input type="text" class="marcaComputador" name="marcaEquipo" />
+      </div>
+
+      <div>
+        <p class="nombreSerialEquipo">Serial del equipo:</p>
+        <input type="text" class="serialComputador" name="serialequipo" />
+      </div>
+
+      <div>
+        <button type="button" class="EnviarDatos">Enviar</button>
+      </div>
+    </form>
+  </div>
+
+  <script src="formularioVisitantes.js"></script>
+</body>
+
+</html>

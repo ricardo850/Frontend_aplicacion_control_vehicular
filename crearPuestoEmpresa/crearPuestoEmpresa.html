@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Crear Puesto</title>
+  <link rel="stylesheet" href="crearPuestoEmpresa.css" />
+</head>
+<body>
+
+  <form class="formCrearPuesto">
+
+    <a href="/MenuEmpresas/MenuEmpresas.html" class="btn-volver">← Volver</a>
+    <h1>CREAR PUESTO</h1>
+
+    <label>Empresa que gestiona el puesto</label>
+    <select name="nombreBaseDatosDatos" class="nombreBaseDatosDatos">
+      <option>seleccione un puesto</option>
+    </select>
+
+    <label>Nombre del puesto que se va a crear</label>
+    <input type="text" class="puesto" name="puesto" />
+
+    <label>Contraseña del puesto para el inicio de sesión</label>
+    <input type="text" class="contrasena" name="contrasena" />
+
+    <input class="enviar" type="button" value="Enviar" />
+  </form>
+
+  <script src="crearPuestoEmpresa.js"></script>
+</body>
+</html>
