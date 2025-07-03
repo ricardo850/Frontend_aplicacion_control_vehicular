@@ -3,26 +3,32 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Crear Puesto</title>
+  <title>Registro</title>
   <link rel="stylesheet" href="crearEmpresa.css" />
 </head>
 <body>
 
-  <form class="formCrearPuesto">
+  <form class="formInicioSesion">
+    <a href="/Inicio_sesion/index.html" class="btn-volver">← Volver</a>
 
-    <a href="EmpresaInicio.html" class="btn-volver">← Volver</a>
-    <h1>CREAR PUESTO</h1>
+    <h1 class="titulo-form">Registro</h1>
 
-    <label>Empresa que gestiona el puesto</label>
-    <div class="nombreBaseDatosDatos estiloDiv"></div>
+    <label>Digita tus nombres</label>
+    <input type="text" name="nombres" class="nombres" />
 
-    <label>Nombre del puesto que se va a crear</label>
-    <input type="text" class="puesto" name="puesto" />
+    <label>Digita tus apellidos</label>
+    <input type="text" name="apellidos" class="apellidos" />
 
-    <label>Contraseña del puesto para el inicio de sesión</label>
-    <input type="text" class="contrasena" name="contrasena" />
+    <label>Digita el nombre de la empresa</label>
+    <input type="text" name="empresa" class="empresa" />
 
-    <input class="enviar" type="button" value="Enviar" />
+    <label>Digita tu correo</label>
+    <input type="text" name="correo" class="correo" />
+
+    <label>Digita tu contraseña</label>
+    <input type="password" name="contrasena" class="contrasena" />
+
+    <input type="button" class="btnEnviar" value="Enviar" />
   </form>
 
   <script src="crearEmpresa.js"></script>

@@ -63,6 +63,26 @@ empresaGestionaPuesto.addEventListener("change", traerPuestos);
 
 function EnviarDatosVehiculos(e){
     e.preventDefault()
+
+    function obtenerFechaHoraActual() {
+  const ahora = new Date();
+  const dia = ahora.getDate().toString().padStart(2, '0');
+  const mes = (ahora.getMonth() + 1).toString().padStart(2, '0');
+  const anio = ahora.getFullYear();
+
+  let horas = ahora.getHours();
+  const minutos = ahora.getMinutes().toString().padStart(2, '0');
+  const segundos = ahora.getSeconds().toString().padStart(2, '0');
+
+  const ampm = horas >= 12 ? 'PM' : 'AM';
+  horas = horas % 12;
+  if (horas === 0) {
+    horas = 12;
+  }
+  horas = horas.toString().padStart(2, '0');
+
+  return `${dia}/${mes}/${anio} ${horas}:${minutos}:${segundos} ${ampm}`;
+}
     let datos = {
         nombreApellidoIngreso:nombreApellidoIngreso.value,
         cedula:cedula.value,
@@ -70,6 +90,7 @@ function EnviarDatosVehiculos(e){
         nombrePuesto:nombrePuesto.value,
         tipoVehiculo:tipoVehiculo.value,
         numeroPlaca:numeroPlaca.value,
+        fechaIngresoVehiculo:obtenerFechaHoraActual(),
         observacion:observacion.value
 
     }

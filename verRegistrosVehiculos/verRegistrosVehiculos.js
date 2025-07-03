@@ -30,7 +30,7 @@ const encabezado = document.createElement("tr");
 
 const columnas = [
     "ID", "Nombre y Apellidos", "Cédula", "Empresa", "Puesto", "Tipo de vehiculo",
-    "placa vehiculo" , "Fecha ingreso vehiculo", "Fecha salida vehiculo", "observaciones",
+    "placa vehiculo", "observaciones",
 ];
 
 columnas.forEach(texto => {
@@ -59,9 +59,7 @@ data.datos.forEach(element => {
         element.nombrePuesto,
         element.tipoVehiculo,
         element.numeroPlaca,
-        element.fechaIngresoVehiculo,
-        element.fechaSalidaVehiculo,
-        element.observacion
+        element.observacion,
     ];
 
     celdas.forEach(valor => {

@@ -7,6 +7,7 @@ let selectpuestos = document.querySelector(".puestos")
 let nombreEmpresa = JSON.parse(localStorage.getItem("nombreEmpresa"));
 
 let contrasena = document.querySelector(".contrasena")
+console.log(nombreEmpresa)
 
 DivnombreEmpresa.textContent = nombreEmpresa
 
@@ -58,7 +59,7 @@ function traerDatosPuesto(){
         nombrepuesto:selectpuestos.value,
         contrasena:contrasena.value
     }
-fetch("http://localhost:8080/VerPuestosInformacion", {
+fetch("http://localhost:8080/TraerPuestosInformacion", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
@@ -68,8 +69,9 @@ fetch("http://localhost:8080/VerPuestosInformacion", {
     .then(response => response.json())
     .then(data => {
         if (data.mensaje === "ok") {
+             localStorage.setItem("puesto" , JSON.stringify(selectpuestos.value))
             window.location.href = "/mostraInformacionPuestosEmpresas/mostrarInformacionPuestosEmpresas.html"
-            localStorage.setItem("puesto" , JSON.stringify(selectpuestos.value))
+           
         } else {
             alert("el puesto no se encuentra")
         }
@@ -78,4 +80,5 @@ fetch("http://localhost:8080/VerPuestosInformacion", {
 
 }
   
+
 EnviarPuesto.addEventListener("click",traerDatosPuesto)

@@ -17,6 +17,7 @@ let empresaGestionaPuesto = document.querySelector(".empresaGestionaPuesto");
 
 let NombreMarcaEquipo = document.querySelector(".nombreMarcaEquipo");
 let NombreSerialEquipo = document.querySelector(".nombreSerialEquipo");
+let correofuncionarioGestionaVisita = document.querySelector(".CorreofuncionarioGestionaVisita")
 
 
 fetch("http://localhost:8080/traerEmpresa")
@@ -109,6 +110,27 @@ function EnviarDatos(event) {
         return;
     }
 
+
+        
+  function obtenerFechaHoraActual() {
+  const ahora = new Date();
+  const dia = ahora.getDate().toString().padStart(2, '0');
+  const mes = (ahora.getMonth() + 1).toString().padStart(2, '0');
+  const anio = ahora.getFullYear();
+
+  let horas = ahora.getHours();
+  const minutos = ahora.getMinutes().toString().padStart(2, '0');
+  const segundos = ahora.getSeconds().toString().padStart(2, '0');
+
+  const ampm = horas >= 12 ? 'PM' : 'AM';
+  horas = horas % 12;
+  if (horas === 0) {
+    horas = 12;
+  }
+  horas = horas.toString().padStart(2, '0');
+
+  return `${dia}/${mes}/${anio} ${horas}:${minutos}:${segundos} ${ampm}`;
+}
     let datos = {
         nombreApellidos: nombreApellido.value,
         cedula: numeroIdentificacion.value,
@@ -120,9 +142,11 @@ function EnviarDatos(event) {
         eps: eps.value,
         arl: arl.value,
         funcionarioGestionaVisita: funcionarioGestionaVisita.value,
-        traeComputoExterno: traeComputo.value,
-        marcaEquipo: traeComputo.value === "Si" ? marcaComputador.value : "No aplica",
-        serialEquipo: traeComputo.value === "Si" ? serialComputador.value : "No aplica"
+        correofuncionarioGestionaVisita:correofuncionarioGestionaVisita.value,
+        fechaIngresoPuesto:obtenerFechaHoraActual(),
+        traeComputoExterno:traeComputo.value,
+        marcaEquipo: traeComputo.value === "Si" ? marcaComputador.value : "N/A",
+        serialEquipo: traeComputo.value === "Si" ? serialComputador.value : "N/A"
     };
 
     fetch("http://localhost:8080/DatosVisitantes", {
@@ -139,6 +163,9 @@ function EnviarDatos(event) {
         }
     })
     .catch(error => console.error('Error al enviar los datos:', error));
+    
 }
 
-botonEnviar.addEventListener("click", EnviarDatos);
+
+
+botonEnviar.addEventListener("click",EnviarDatos );

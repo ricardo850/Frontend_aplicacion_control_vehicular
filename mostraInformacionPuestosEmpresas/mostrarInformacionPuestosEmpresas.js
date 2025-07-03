@@ -19,20 +19,20 @@ fetch("http://localhost:8080/VerPuestosInformacion", {
     .then(response => response.json())
     .then(data => {
       if(data.mensaje == "ok"){
-        // Crear la tabla y encabezado solo una vez
+        
 const tabla = document.createElement("table");
 tabla.border = "1";
 tabla.style.borderCollapse = "collapse";
 tabla.style.width = "100%";
 
-// Crear encabezado
+
 const thead = document.createElement("thead");
 const encabezado = document.createElement("tr");
 
 const columnas = [
     "ID", "Nombre y Apellidos", "Cédula", "Empresa", "Puesto", "Tipo de Sangre",
     "Nombre Emergencia", "Teléfono Emergencia", "EPS", "ARL",
-    "Funcionario Visita", "¿Trae Computo Externo?", "Marca Equipo", "Serial Equipo"
+    "Funcionario que recibira su Visita","Correo funcionario que gestiona la visita" , "Fecha ingreso", "Fecha salida", "¿Trae Computo Externo?", "Marca Equipo", "Serial Equipo"
 ];
 
 columnas.forEach(texto => {
@@ -47,7 +47,6 @@ columnas.forEach(texto => {
 thead.appendChild(encabezado);
 tabla.appendChild(thead);
 
-// Crear cuerpo de la tabla
 const tbody = document.createElement("tbody");
 
 data.datos.forEach(element => {
@@ -65,6 +64,9 @@ data.datos.forEach(element => {
         element.eps,
         element.arl,
         element.funcionarioGestionaVisita,
+        element.correofuncionarioGestionaVisita,
+        element.fechaIngresoPuesto,
+        element.fechaSalidaPuesto,
         element.traeComputoExterno,
         element.marcaEquipo,
         element.serialequipo
@@ -73,7 +75,7 @@ data.datos.forEach(element => {
     celdas.forEach(valor => {
         const td = document.createElement("td");
         td.textContent = valor || "N/A";
-        td.style.padding = "8px";
+        td.style.padding = "2px";
         td.style.border = "1px solid #ccc";
         fila.appendChild(td);
     });
@@ -92,6 +94,7 @@ content.appendChild(tabla);
 
 
 }
+
 
 
 document.addEventListener("DOMContentLoaded", function () {

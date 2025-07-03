@@ -1,14 +1,14 @@
-let datosBaseDatos = JSON.parse(localStorage.getItem("nombreEmpresa") || "[]");
-let datosPuesto = JSON.parse(localStorage.getItem("puesto") || "[]");
 let content = document.querySelector(".content");
-function VerVehiculos() {
+let puesto = JSON.parse(localStorage.getItem("puesto") || "[]");
+let nombreEmpresa = JSON.parse(localStorage.getItem("nombreEmpresa"));
 
+function TraerDatos() {
     let datos = {
-        empresaGestionaPuesto:datosBaseDatos,
-        nombrePuesto:datosPuesto
+        nombreBaseDatosDatos:nombreEmpresa,
+        nombrepuesto:puesto
     }
 
-fetch("http://localhost:8080/verVehiculos", {
+fetch("http://localhost:8080/VerPuestosInformacion", {
         method :"POST",
         headers : {
             "Content-Type": "application/json"
@@ -19,18 +19,20 @@ fetch("http://localhost:8080/verVehiculos", {
     .then(response => response.json())
     .then(data => {
       if(data.mensaje == "ok"){
-      
+        // Crear la tabla y encabezado solo una vez
 const tabla = document.createElement("table");
 tabla.border = "1";
 tabla.style.borderCollapse = "collapse";
 tabla.style.width = "100%";
 
+// Crear encabezado
 const thead = document.createElement("thead");
 const encabezado = document.createElement("tr");
 
 const columnas = [
-    "ID", "Nombre y Apellidos", "Cédula", "Empresa", "Puesto", "Tipo de vehiculo",
-    "placa vehiculo" , "Fecha ingreso vehiculo", "Fecha salida vehiculo", "observaciones",
+    "ID", "Nombre y Apellidos", "Cédula", "Empresa", "Puesto", "Tipo de Sangre",
+    "Nombre Emergencia", "Teléfono Emergencia", "EPS", "ARL",
+    "Funcionario Visita", "¿Trae Computo Externo?", "Marca Equipo", "Serial Equipo"
 ];
 
 columnas.forEach(texto => {
@@ -53,15 +55,19 @@ data.datos.forEach(element => {
 
     const celdas = [
         element.id,
-        element.nombreApellidoIngreso,
+        element.nombreApellidos,
         element.cedula,
         element.empresaGestionaPuesto,
         element.nombrePuesto,
-        element.tipoVehiculo,
-        element.numeroPlaca,
-        element.fechaIngresoVehiculo,
-        element.fechaSalidaVehiculo,
-        element.observacion
+        element.tipoSangre,
+        element.nombreApellidosEmergencia,
+        element.telefonoEmergencia,
+        element.eps,
+        element.arl,
+        element.funcionarioGestionaVisita,
+        element.traeComputoExterno,
+        element.marcaEquipo,
+        element.serialequipo
     ];
 
     celdas.forEach(valor => {
@@ -78,13 +84,16 @@ data.datos.forEach(element => {
 tabla.appendChild(tbody);
 content.appendChild(tabla);
 
-    
-      }
-    }
-      )
+      }else if(data.mensaje == "falso"){
+        alert("datos no encontrados")
       }
 
+    })
 
-      document.addEventListener("DOMContentLoaded", function () {
-    VerVehiculos()
+
+}
+
+
+document.addEventListener("DOMContentLoaded", function () {
+    TraerDatos()
 });

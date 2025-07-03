@@ -5,25 +5,40 @@ document.addEventListener("DOMContentLoaded", function () {
     let enviar = document.querySelector(".enviar");
     let contrasena = document.querySelector(".contrasena");
 
-    fetch("http://localhost:8080/traerEmpresa")
-    .then(response => response.json())
-    .then(data => {
-        if (data.mensaje === "true") {
-            data.datos.forEach(element => {
-                let option = document.createElement("option");
-                option.textContent = element.empresa;
-                option.value = element.empresa; 
-                nombreBaseDatosDatos.appendChild(option);
-            });
-        }
-    })
-    .catch(error => console.error('Error al enviar los datos:', error));
-
+   let nombreBaseDatos = JSON.parse(localStorage.getItem("nombreEmpresa"))
+     let content = document.querySelector(".content")
+     content.textContent = nombreBaseDatos
+let ubicacionPuesto = document.querySelector(".ubicacionPuesto")
 
     function crearPuesto() {
+
+        
+  function obtenerFechaHoraActual() {
+  const ahora = new Date();
+  const dia = ahora.getDate().toString().padStart(2, '0');
+  const mes = (ahora.getMonth() + 1).toString().padStart(2, '0');
+  const anio = ahora.getFullYear();
+
+  let horas = ahora.getHours();
+  const minutos = ahora.getMinutes().toString().padStart(2, '0');
+  const segundos = ahora.getSeconds().toString().padStart(2, '0');
+
+  const ampm = horas >= 12 ? 'PM' : 'AM';
+  horas = horas % 12;
+  if (horas === 0) {
+    horas = 12;
+  }
+  horas = horas.toString().padStart(2, '0');
+
+  return `${dia}/${mes}/${anio} ${horas}:${minutos}:${segundos} ${ampm}`;
+}
+
+
         let datos = {
-            nombreBaseDatosDatos: nombreBaseDatosDatos.value,
+            nombreBaseDatosDatos:content.textContent,
             nombrepuesto: puesto.value,
+            ubicacionPuesto:ubicacionPuesto.value,
+            fechaCreacionPuesto:obtenerFechaHoraActual(),
             contrasena: contrasena.value
         };
 

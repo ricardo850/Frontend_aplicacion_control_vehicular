@@ -1,39 +1,38 @@
-document.addEventListener("DOMContentLoaded", function () {
-    let contentDatos = document.querySelector(".contentDatos");
+let nombres = document.querySelector(".nombres")
+let apellidos = document.querySelector(".apellidos")
+let correo = document.querySelector(".correo")
+let contrasena = document.querySelector(".contrasena")
+let btnEnviar = document.querySelector(".btnEnviar")
+let empresa = document.querySelector(".empresa")
 
-    let nombreBaseDatosDatos = document.querySelector(".nombreBaseDatosDatos");
-    let puesto = document.querySelector(".puesto");
-    let enviar = document.querySelector(".enviar");
-    let contrasena = document.querySelector(".contrasena");
 
-let nombreEmpresa = JSON.parse(localStorage.getItem("nombreEmpresa"));
 
-        nombreBaseDatosDatos.textContent = nombreEmpresa;
-   
-    function crearPuesto() {
-        let datos = {
-            nombreBaseDatosDatos: nombreBaseDatosDatos.textContent,
-            nombrepuesto: puesto.value,
-            contrasena: contrasena.value
-        };
+function inicioSesion() {
 
-        fetch("http://localhost:8080/crearPuesto", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify(datos)
-        })
-        .then(response => response.json())
-        .then(data => {
-            if (data.mensaje === "true") {
-                alert("El puesto se creó correctamente");
-            } else {
-                alert("No se pudo crear el puesto");
-            }
-        })
-        .catch(error => console.error("Error al crear el puesto:", error));
+    let datos = {
+        nombres:nombres.value,
+        apellidos:apellidos.value,
+        empresa:empresa.value,
+        correo:correo.value,
+        contrasena:contrasena.value,
     }
 
-    enviar.addEventListener("click", crearPuesto);
-});
+fetch("http://localhost:8080/insertarDatosInicioSesion", {
+        method :"POST",
+        headers : {
+            "Content-Type": "application/json"
+        },
+
+        body : JSON.stringify(datos)
+    })
+    .then(response => response.json())
+    .then(data => {
+      if(data.mensaje == "ok"){
+       alert("registro exitoso")
+      }
+    })
+
+
+}
+
+btnEnviar.addEventListener("click",inicioSesion)

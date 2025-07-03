@@ -16,6 +16,15 @@ body {
   box-shadow: 0px 0px 15px rgba(0,0,0,0.1);
 }
 
+.btn-volver{
+  text-decoration: none;
+  background-color: #ffd54f;
+  color: black;
+  padding: 8px 14px;
+  border-radius: 20px;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
 
 .tableCss {
   width: 100%;

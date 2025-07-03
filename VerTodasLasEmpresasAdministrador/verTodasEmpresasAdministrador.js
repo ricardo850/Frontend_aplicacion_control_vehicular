@@ -39,9 +39,11 @@ function Empresas() {
 
           linkVerPuestos.appendChild(boton)
 
+          localStorage.setItem("nombreEmpresa" , JSON.stringify(element.empresa))
          
           linkVerPuestos.addEventListener("click", (e) => {
             e.preventDefault(); 
+            window.location.href = "/verPuestosAdministracion/verTodosPuestosAdministrador.html"
           });
 
           tdAccion.appendChild(linkVerPuestos);
